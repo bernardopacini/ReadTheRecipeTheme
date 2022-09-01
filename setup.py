@@ -2,13 +2,13 @@
 from setuptools import setup
 
 setup(
-    name='sphinx_bernard_theme',
-    version='0.1.11',
-    url='https://github.com/bernardphp/bernardphp-com/',
+    name='sphinx_ReadTheRecipe_theme',
+    version='0.0.1',
+    url='https://github.com/bernardopacini/ReadTheRecipe',
     license='MIT',
-    author='Henrk Bjornskov',
-    author_email='henrik@bjrnskov.dk',
-    packages=['sphinx_bernard_theme'],
+    author='Bernardo Pacini',
+    author_email='bpacini@umich.edu',
+    packages=['sphinx_ReadTheRecipe_theme'],
     include_package_data=True,
     install_requires=[
         'setuptools'

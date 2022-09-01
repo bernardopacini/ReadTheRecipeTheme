@@ -24,7 +24,7 @@ h1{font-size:50px;margin:10px 0}
 
 .headerlink{display:none;}
 .lead{font-size:34px}
-.btn-bernard{background:#ffaa00;color:#fff;}
+.btn-ReadTheRecipe{background:#ffaa00;color:#fff;}
 
 @media (max-width:991px) {
     .navbar-toggle{display:block}
