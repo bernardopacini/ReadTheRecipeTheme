@@ -15,11 +15,13 @@ pip3 install .
 Usage
 -----
 
-To use the theme, set the following variables in your project's Sphinx `conf.py` file:
+To use the theme, import the package and set the following variables in your project's Sphinx `conf.py` file:
 
 ```
-html_theme = "sphinx_readtherecipe_theme"
-html_theme_path = [sphinx_readtherecipe_theme.get_html_theme_path()]
+import sphinxReadTheRecipeTheme
+
+html_theme = "sphinxReadtherecipeTheme"
+html_theme_path = [sphinxReadtherecipeTheme.get_html_theme_path()]
 ```
 
 License
