@@ -1,13 +1,13 @@
 include *.txt
 include LICENSE
-recursive-include sphinx_ReadTheRecipe_theme *.conf
-recursive-include sphinx_ReadTheRecipe_theme *.css
-recursive-include sphinx_ReadTheRecipe_theme *.css_t
-recursive-include sphinx_ReadTheRecipe_theme *.eot
-recursive-include sphinx_ReadTheRecipe_theme *.html
-recursive-include sphinx_ReadTheRecipe_theme *.png
-recursive-include sphinx_ReadTheRecipe_theme *.ico
-recursive-include sphinx_ReadTheRecipe_theme *.js
-recursive-include sphinx_ReadTheRecipe_theme *.svg
-recursive-include sphinx_ReadTheRecipe_theme *.ttf
-recursive-include sphinx_ReadTheRecipe_theme *.woff
+recursive-include sphinx-ReadTheRecipe-theme *.conf
+recursive-include sphinx-ReadTheRecipe-theme *.css
+recursive-include sphinx-ReadTheRecipe-theme *.css_t
+recursive-include sphinx-ReadTheRecipe-theme *.eot
+recursive-include sphinx-ReadTheRecipe-theme *.html
+recursive-include sphinx-ReadTheRecipe-theme *.png
+recursive-include sphinx-ReadTheRecipe-theme *.ico
+recursive-include sphinx-ReadTheRecipe-theme *.js
+recursive-include sphinx-ReadTheRecipe-theme *.svg
+recursive-include sphinx-ReadTheRecipe-theme *.ttf
+recursive-include sphinx-ReadTheRecipe-theme *.woff
