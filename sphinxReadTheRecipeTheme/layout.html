@@ -85,7 +85,7 @@
         </div>
 
         {%- for scriptfile in script_files %}
-            <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
+            {{ script_tag(scriptfile) }}
         {%- endfor %}
         <script type="text/javascript" src="{{ pathto('_static/ReadTheRecipe.js', 1) }}"></script>
     </body>
