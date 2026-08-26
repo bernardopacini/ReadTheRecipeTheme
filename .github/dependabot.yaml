@@ -1,0 +1,11 @@
+version: 2
+updates:
+  # 1. Python dependencies (package, docs, tests)
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
