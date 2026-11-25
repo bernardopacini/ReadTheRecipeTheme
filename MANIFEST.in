@@ -11,3 +11,5 @@ recursive-include sphinxReadTheRecipeTheme *.js
 recursive-include sphinxReadTheRecipeTheme *.svg
 recursive-include sphinxReadTheRecipeTheme *.ttf
 recursive-include sphinxReadTheRecipeTheme *.woff
+recursive-include sphinxReadTheRecipeTheme *.woff2
+recursive-include sphinxReadTheRecipeTheme *.txt

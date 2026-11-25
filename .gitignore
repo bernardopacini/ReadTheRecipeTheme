@@ -3,3 +3,5 @@ _build
 build
 dist
 sphinxReadTheRecipeTheme.egg-info
+__pycache__/
+*.pyc

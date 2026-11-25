@@ -22,10 +22,6 @@
         {%- endif %}
 
         <link rel="stylesheet" href="{{ pathto('_static/bootstrap/css/bootstrap.min.css', 1) }}" type="text/css" />
-        {%- for css in styles %}
-        <link rel="stylesheet" href="{{ pathto('_static/' + css, 1) }}" type="text/css" />
-        {%- endfor %}
-        <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css" />
 
         {%- for cssfile in css_files %}
         <link rel="stylesheet" href="{{ pathto(cssfile.filename, 1) }}" type="text/css" />
@@ -45,12 +41,14 @@
     </head>
 
     <body>
+        {%- if theme_show_ribbon|tobool and theme_github_url %}
         <div class="ribbon">
-            <a href="https://github.com/bernardopacini/ReadTheRecipe">Fork me on GitHub!</a>
+            <a href="{{ theme_github_url|e }}">Fork me on GitHub!</a>
         </div>
+        {%- endif %}
 
         <div class="container text-center logo">
-            <h1><a href="https://readtherecipe.readthedocs.io/en/latest/">ReadTheRecipe</a></h1>
+            <h1><a href="{{ theme_logo_url|e }}">{{ theme_logo_text|e }}</a></h1>
         </div>
 
         <hr />
@@ -85,8 +83,8 @@
         </div>
 
         {%- for scriptfile in script_files %}
-            <script type="text/javascript" src="{{ pathto(scriptfile.filename, 1) }}"></script>
+            {{ js_tag(scriptfile) }}
         {%- endfor %}
-        <script type="text/javascript" src="{{ pathto('_static/ReadTheRecipe.js', 1) }}"></script>
+        <script src="{{ pathto('_static/ReadTheRecipe.js', 1) }}"></script>
     </body>
 </html>

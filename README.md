@@ -20,8 +20,19 @@ To use the theme, import the package and set the following variables in your pro
 ```
 import sphinxReadTheRecipeTheme
 
-html_theme = "sphinxReadtherecipeTheme"
-html_theme_path = [sphinxReadtherecipeTheme.get_html_theme_path()]
+html_theme = "sphinxReadTheRecipeTheme"
+html_theme_path = [sphinxReadTheRecipeTheme.get_html_theme_path()]
+```
+
+Optional theme options (defaults shown):
+
+```
+html_theme_options = {
+    "github_url": "https://github.com/bernardopacini/ReadTheRecipe",
+    "logo_text": "ReadTheRecipe",
+    "logo_url": "https://readtherecipe.readthedocs.io/en/latest/",
+    "show_ribbon": True,
+}
 ```
 
 License
