@@ -1,7 +1,6 @@
 {%- extends "basic/layout.html" %}
 
 {%- block css %}
-    <link rel="stylesheet" href="{{ pathto('_static/bootstrap/css/bootstrap.min.css', 1) }}" />
     {{- super() }}
 {%- endblock %}
 
@@ -17,7 +16,7 @@
 {%- endblock %}
 
 {%- block header %}
-        <a class="sr-only sr-only-focusable" href="#main-content">Skip to content</a>
+        <a class="visually-hidden skip-link" href="#main-content">Skip to content</a>
 
         {%- if theme_show_ribbon|tobool and theme_github_url %}
         <div class="ribbon">
@@ -25,7 +24,7 @@
         </div>
         {%- endif %}
 
-        <div class="container text-center logo">
+        <div class="container logo">
             <h1><a href="{{ theme_logo_url|e }}">{{ theme_logo_text|e }}</a></h1>
         </div>
 
@@ -40,7 +39,7 @@
 {%- block content %}
         <div class="container">
             <div class="row">
-                <nav class="col-md-3 toc" aria-label="Table of contents">
+                <nav class="toc" aria-label="Table of contents">
                     {% set toctree = toctree(maxdepth=2, collapse=True, includehidden=True) %}
 
                     {% if toctree %}
@@ -51,26 +50,22 @@
 
                     {%- if hasdoc('search') %}
                     <form class="toc-search" action="{{ pathto('search') }}" method="get" role="search">
-                        <div class="input-group">
-                            <input type="search" name="q" class="form-control" placeholder="Search" aria-label="Search" />
-                            <input type="hidden" name="check_keywords" value="yes" />
-                            <input type="hidden" name="area" value="default" />
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-ReadTheRecipe">Go</button>
-                            </span>
-                        </div>
+                        <input type="search" name="q" class="toc-search-input" placeholder="Search" aria-label="Search" />
+                        <input type="hidden" name="check_keywords" value="yes" />
+                        <input type="hidden" name="area" value="default" />
+                        <button type="submit" class="btn-ReadTheRecipe">Go</button>
                     </form>
                     {%- endif %}
 
-                    <button type="button" class="navbar-toggle" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                    <button type="button" class="toc-toggle" aria-expanded="false">
+                        <span class="visually-hidden">Toggle navigation</span>
+                        <span class="toc-toggle-bar"></span>
+                        <span class="toc-toggle-bar"></span>
+                        <span class="toc-toggle-bar"></span>
                     </button>
                 </nav>
 
-                <div class="col-md-9 body" id="main-content" role="main">
+                <div class="body" id="main-content" role="main">
                     {% block body %}{% endblock %}
 
                     {%- if prev or next %}
