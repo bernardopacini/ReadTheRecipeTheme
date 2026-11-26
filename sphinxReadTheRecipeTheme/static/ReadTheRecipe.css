@@ -16,6 +16,7 @@ h1{font-size:50px;margin:10px 0}
 
 .navbar-toggle{position:absolute;top:0;right:15px;border:1px solid #ffaa00;display:none;}
 .navbar-toggle .icon-bar{background:#ffaa00}
+.navbar-toggle:focus-visible{outline:2px solid #ffaa00;outline-offset:2px}
 .navbar-toggle:hover{background:#ffaa00}
 .navbar-toggle:hover .icon-bar{background:#fff}
 

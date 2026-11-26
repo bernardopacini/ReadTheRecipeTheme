@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!toggle || !menu) {
         return;
     }
-    toggle.setAttribute('aria-expanded', 'false');
     toggle.addEventListener('click', function (e) {
         e.preventDefault();
         var hidden = window.getComputedStyle(menu).display === 'none';

@@ -1,46 +1,37 @@
 {%- block doctype -%}
 <!DOCTYPE html>
 {%- endblock -%}
-{%- set url_root = pathto('', 1) %}
 {%- set titlesuffix = '' %}
 {%- if not embedded and docstitle %}
     {%- set titlesuffix = ' &mdash; '|safe + docstitle|e %}
 {%- endif %}
-<html>
+<html lang="{{ language or 'en' }}">
     <head>
         {%- block htmltitle %}
         <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
         {%- endblock %}
 
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         {%- if favicon %}
-        <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}" />
+        <link rel="icon" href="{{ pathto('_static/' + favicon, 1) }}" />
         {%- else %}
-        <link rel="shortcut icon" href="{{ pathto('_static/favicon.ico', 1) }}" />
+        <link rel="icon" href="{{ pathto('_static/favicon.ico', 1) }}" />
         {%- endif %}
 
-        <link rel="stylesheet" href="{{ pathto('_static/bootstrap/css/bootstrap.min.css', 1) }}" type="text/css" />
+        <link rel="stylesheet" href="{{ pathto('_static/bootstrap/css/bootstrap.min.css', 1) }}" />
 
         {%- for cssfile in css_files %}
-        <link rel="stylesheet" href="{{ pathto(cssfile.filename, 1) }}" type="text/css" />
+        <link rel="stylesheet" href="{{ pathto(cssfile.filename, 1) }}" />
         {%- endfor %}
-
-        <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT       : '{{- url_root -}}',
-            VERSION        : '{{ release|trim|e }}',
-            COLLAPSE_INDEX : false,
-            FILE_SUFFIX    : '{{- '' if no_search_suffix else file_suffix -}}',
-            HAS_SOURCE     : {{ has_source|lower }}
-        };
-        </script>
 
         {% block extrahead %}{% endblock %}
     </head>
 
     <body>
+        <a class="sr-only sr-only-focusable" href="#main-content">Skip to content</a>
+
         {%- if theme_show_ribbon|tobool and theme_github_url %}
         <div class="ribbon">
             <a href="{{ theme_github_url|e }}">Fork me on GitHub!</a>
@@ -55,7 +46,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-3 toc">
+                <nav class="col-md-3 toc" aria-label="Table of contents">
                     {% set toctree =  toctree(maxdepth=2, collapse=True, includehidden=True) %}
 
                     {% if toctree %}
@@ -64,20 +55,16 @@
                         {{ toc }}
                     {% endif %}
 
-                    <a href="#" class="navbar-toggle">
+                    <button type="button" class="navbar-toggle" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </a>
-                </div>
+                    </button>
+                </nav>
 
-                <div class="col-md-9 body">
+                <div class="col-md-9 body" id="main-content" role="main">
                     {% block body %}{% endblock %}
-                </div>
-
-                <div class="container">
-                    {#% include "footer.html" %#}
                 </div>
             </div>
         </div>
