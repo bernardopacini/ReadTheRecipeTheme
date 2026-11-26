@@ -1,35 +1,22 @@
-{%- block doctype -%}
-<!DOCTYPE html>
-{%- endblock -%}
-{%- set titlesuffix = '' %}
-{%- if not embedded and docstitle %}
-    {%- set titlesuffix = ' &mdash; '|safe + docstitle|e %}
-{%- endif %}
-<html lang="{{ language or 'en' }}">
-    <head>
-        {%- block htmltitle %}
-        <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
-        {%- endblock %}
+{%- extends "basic/layout.html" %}
 
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{%- block css %}
+    <link rel="stylesheet" href="{{ pathto('_static/bootstrap/css/bootstrap.min.css', 1) }}" />
+    {{- super() }}
+{%- endblock %}
 
-        {%- if favicon %}
-        <link rel="icon" href="{{ pathto('_static/' + favicon, 1) }}" />
-        {%- else %}
-        <link rel="icon" href="{{ pathto('_static/favicon.ico', 1) }}" />
-        {%- endif %}
+{%- block scripts %}
+    {{- super() }}
+    <script src="{{ pathto('_static/ReadTheRecipe.js', 1) }}" defer></script>
+{%- endblock %}
 
-        <link rel="stylesheet" href="{{ pathto('_static/bootstrap/css/bootstrap.min.css', 1) }}" />
+{%- block extrahead %}
+    {%- if not favicon_url %}
+    <link rel="icon" href="{{ pathto('_static/favicon.ico', 1) }}" />
+    {%- endif %}
+{%- endblock %}
 
-        {%- for cssfile in css_files %}
-        <link rel="stylesheet" href="{{ pathto(cssfile.filename, 1) }}" />
-        {%- endfor %}
-
-        {% block extrahead %}{% endblock %}
-    </head>
-
-    <body>
+{%- block header %}
         <a class="sr-only sr-only-focusable" href="#main-content">Skip to content</a>
 
         {%- if theme_show_ribbon|tobool and theme_github_url %}
@@ -43,11 +30,18 @@
         </div>
 
         <hr />
+{%- endblock %}
 
+{#- Related-links bars and footer are intentionally empty in this theme. #}
+{%- block relbar1 %}{% endblock %}
+{%- block relbar2 %}{% endblock %}
+{%- block footer %}{% endblock %}
+
+{%- block content %}
         <div class="container">
             <div class="row">
                 <nav class="col-md-3 toc" aria-label="Table of contents">
-                    {% set toctree =  toctree(maxdepth=2, collapse=True, includehidden=True) %}
+                    {% set toctree = toctree(maxdepth=2, collapse=True, includehidden=True) %}
 
                     {% if toctree %}
                         {{ toctree }}
@@ -68,10 +62,4 @@
                 </div>
             </div>
         </div>
-
-        {%- for scriptfile in script_files %}
-            {{ js_tag(scriptfile) }}
-        {%- endfor %}
-        <script src="{{ pathto('_static/ReadTheRecipe.js', 1) }}"></script>
-    </body>
-</html>
+{%- endblock %}
