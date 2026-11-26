@@ -26,8 +26,14 @@ h1{font-size:50px;margin:10px 0}
 .logo a{color:#333;text-decoration:None}
 .logo a:hover{color:#333;text-decoration:None}
 
-.ribbon{position: absolute;top:0;right:0;border:0;z-index:2000;}
-.ribbon a{background:url('img/fork-me.png');width:140px;height:140px;display:block;text-indent:-99999px;}
+.ribbon{position:absolute;top:0;right:0;width:140px;height:140px;overflow:hidden;z-index:2000;pointer-events:none}
+.ribbon a{pointer-events:auto;position:absolute;top:34px;right:-44px;width:200px;padding:6px 0;background:#1f2230;color:#fff;font:700 13px/1.3 Helvetica,Arial,sans-serif;text-align:center;text-decoration:none;text-shadow:0 -1px 0 rgba(0,0,0,.5);transform:rotate(45deg);box-shadow:0 2px 4px rgba(0,0,0,.4)}
+.ribbon a:hover,.ribbon a:focus{color:#fff;text-decoration:none}
+
+.toc-search{margin-top:15px}
+
+.pager li>a{background:#F8F1E4;border-color:#e8dcc4}
+.pager li>a:hover,.pager li>a:focus{background:#ffaa00;border-color:#ffaa00;color:#fff}
 
 .headerlink{display:none;}
 .lead{font-size:34px}
@@ -38,15 +44,11 @@ h1{font-size:50px;margin:10px 0}
     .ribbon{display:none}
 
     .toc{min-height:48px;}
-    .toc > ul{display:none}
+    .toc > ul,.toc > form{display:none}
 }
 
 @media (min-width:992px) {
-    .toc > ul{display:block !important}
-}
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .ribbon a{background:url('img/fork-me@2x.png');background-size:140px 140px}
+    .toc > ul,.toc > form{display:block !important}
 }
 
 .admonition.note, .admonition.attention, .admonition.caution, .admonition.danger, .admonition.error, .admonition.hint,

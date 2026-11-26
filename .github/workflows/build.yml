@@ -30,3 +30,13 @@ jobs:
         run: sphinx-build -W -b html tests/sample_docs build/html
       - name: Check theme stylesheet is linked
         run: grep -q 'ReadTheRecipe.css' build/html/index.html
+      - name: Check theme options and features
+        run: |
+          grep -q 'Sample Logo' build/html/index.html
+          grep -q 'https://example.com/sample-repo' build/html/index.html
+          grep -q 'class="toc-search"' build/html/index.html
+          grep -q 'class="pager"' build/html/recipe.html
+      - name: Build with ribbon disabled
+        run: |
+          sphinx-build -W -b html -D html_theme_options.show_ribbon=false tests/sample_docs build/no-ribbon
+          ! grep -q 'class="ribbon"' build/no-ribbon/index.html

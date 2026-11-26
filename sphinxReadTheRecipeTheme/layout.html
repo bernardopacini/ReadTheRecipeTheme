@@ -49,6 +49,19 @@
                         {{ toc }}
                     {% endif %}
 
+                    {%- if hasdoc('search') %}
+                    <form class="toc-search" action="{{ pathto('search') }}" method="get" role="search">
+                        <div class="input-group">
+                            <input type="search" name="q" class="form-control" placeholder="Search" aria-label="Search" />
+                            <input type="hidden" name="check_keywords" value="yes" />
+                            <input type="hidden" name="area" value="default" />
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-ReadTheRecipe">Go</button>
+                            </span>
+                        </div>
+                    </form>
+                    {%- endif %}
+
                     <button type="button" class="navbar-toggle" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -59,6 +72,19 @@
 
                 <div class="col-md-9 body" id="main-content" role="main">
                     {% block body %}{% endblock %}
+
+                    {%- if prev or next %}
+                    <nav aria-label="Previous and next pages">
+                        <ul class="pager">
+                            {%- if prev %}
+                            <li class="previous"><a href="{{ prev.link|e }}" rel="prev">&larr; {{ prev.title|striptags|e }}</a></li>
+                            {%- endif %}
+                            {%- if next %}
+                            <li class="next"><a href="{{ next.link|e }}" rel="next">{{ next.title|striptags|e }} &rarr;</a></li>
+                            {%- endif %}
+                        </ul>
+                    </nav>
+                    {%- endif %}
                 </div>
             </div>
         </div>
