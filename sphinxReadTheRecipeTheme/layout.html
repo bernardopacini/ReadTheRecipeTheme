@@ -67,19 +67,6 @@
 
                 <div class="body" id="main-content" role="main">
                     {% block body %}{% endblock %}
-
-                    {%- if prev or next %}
-                    <nav aria-label="Previous and next pages">
-                        <ul class="pager">
-                            {%- if prev %}
-                            <li class="previous"><a href="{{ prev.link|e }}" rel="prev">&larr; {{ prev.title|striptags|e }}</a></li>
-                            {%- endif %}
-                            {%- if next %}
-                            <li class="next"><a href="{{ next.link|e }}" rel="next">{{ next.title|striptags|e }} &rarr;</a></li>
-                            {%- endif %}
-                        </ul>
-                    </nav>
-                    {%- endif %}
                 </div>
             </div>
         </div>

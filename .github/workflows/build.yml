@@ -35,7 +35,6 @@ jobs:
           grep -q 'Sample Logo' build/html/index.html
           grep -q 'https://example.com/sample-repo' build/html/index.html
           grep -q 'class="toc-search"' build/html/index.html
-          grep -q 'class="pager"' build/html/recipe.html
       - name: Build with ribbon disabled
         run: |
           sphinx-build -W -b html -D html_theme_options.show_ribbon=false tests/sample_docs build/no-ribbon
