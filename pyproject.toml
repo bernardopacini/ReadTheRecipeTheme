@@ -9,7 +9,7 @@ description = "Sphinx HTML theme for ReadTheRecipe"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 authors = [{ name = "Bernardo Pacini", email = "bpacini@umich.edu" }]
 dependencies = ["sphinx>=7.2"]
 classifiers = [
